@@ -5,7 +5,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     darkMode: ["class"],
     content: [
-    "app/pages/**/*.{js,ts,jsx,tsx}",
+    "app/**/*.{js,ts,jsx,tsx}",
     "app/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -78,6 +78,6 @@ module.exports = {
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/aspect-ratio'),
-      require("tailwindcss-animate")
+    require("tailwindcss-animate")
 ],
 };

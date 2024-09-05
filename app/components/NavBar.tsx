@@ -11,7 +11,7 @@ const navigation = [
     { name: "Home", href: "/" },
     { name: "El Faro Summit", href: "/elfaro" },
     { name: "El Faro Riverside", href: "/elfarotwo" },
-    { name: "Our Legacy", href: "/legacy" },
+    { name: "About Us", href: "/aboutus" },
     { name: "Order Online", href: "/order" },
   ];
 
