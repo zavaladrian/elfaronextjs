@@ -46,7 +46,7 @@ export default function TimelinePage() {
       </div>
      
       <div className=" text-center">
-        <h1 className="font-pacifico text-3xl sm:text-6xl lg:text-8xl text-white underline border-y-8 pb-20 pt-5 border-black">
+        <h1 className="font-pacifico text-7xl sm:text-6xl lg:text-8xl text-white underline border-y-8 pb-20 pt-5 border-black">
           About Us
         </h1>
       </div>

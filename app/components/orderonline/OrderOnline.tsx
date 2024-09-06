@@ -15,10 +15,10 @@ interface OrderProps {
 
 const OrderOnline: React.FC<OrderProps> = ({ services }) => {
   return (
-    <div className="sm:mx-20 -my-4 invisible xl:visible">
+    <div className="sm:mx-20 -my-4">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div className="lg:grid lg:grid-cols-1 lg:gap-8">
-          <h2 className="mx-auto max-w-lg text-center sm:text-4xl font-bold tracking-tight text-white lg:max-w-xl lg:text-left font-roboto underline">
+          <h2 className="mx-auto max-w-lg text-center text-2xl sm:text-4xl font-bold tracking-tight text-white lg:max-w-xl lg:text-left font-roboto underline">
             Online Pick Up And Delivery Services 
           </h2>
           <div className="mt-8 flow-root justify-center lg:mt-0">

@@ -1,11 +1,12 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import React, { Dispatch, SetStateAction, useState } from "react";
+import React, { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { FiPlus } from "react-icons/fi";
 import useMeasure from "react-use-measure";
 import OrderOnline from "../components/orderonline/OrderOnline";
 import { oneservices } from "../components/orderonline/onlineservices";
+
 
 const MENUITEMS = {
   Breakfast: [
@@ -510,7 +511,7 @@ const Heading = () => {
   return (
     <>
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <span className="mb-8 text-white underline bg-clip-text font-medium font-pacifico text-7xl">
+        <span className="mb-8 text-white  font-pacifico text-6xl">
           Check Out Our Menu
         </span>
         <button className="mb-8 text-5xl font-bold font-cinzel bg-white shadow-md p-2 shadow-red-700 rounded-lg" disabled>
@@ -543,14 +544,14 @@ const Tabs = ({
   setSelected: Dispatch<SetStateAction<string>>;
 }) => {
   return (
-    <div className="relative z-10 flex flex-wrap items-center justify-center gap-4">
+    <div className="relative z-10 grid grid-cols-3 items-center justify-evenly gap-4">
       {TABS.map((tab) => (
         <button
           onClick={() => setSelected(tab)}
           className={`relative overflow-hidden whitespace-nowrap rounded-md border-[1px] px-3 py-1.5 text-xl font-medium transition-colors duration-500 ${
             selected === tab
               ? "border-red-500 text-slate-50"
-              : "border-slate-600 bg-transparent text-slate-400"
+              : "border-slate-600 bg-gradient-to-l from-white to-yellow-500 text-black"
           }`}
           key={tab}
         >
@@ -585,6 +586,26 @@ type MenuType = {
 const Item = ({ food, description, price }: MenuType) => {
   const [ref, { height }] = useMeasure();
   const [open, setOpen] = useState(false);
+  const [marginBottom, setMarginBottom] = useState("250px");
+
+  useEffect(() => {
+    const updateMarginBottom = () => {
+      if (window.innerWidth >= 1440) {
+        setMarginBottom("650px"); // Largest screen size
+      } else if (window.innerWidth >= 1024) {
+        setMarginBottom("720px"); // Medium screen size
+      } else if (window.innerWidth >= 768) {
+        setMarginBottom("180px"); // Smaller screen size
+      } else {
+        setMarginBottom("250px"); // Smallest screen size
+      }
+    };
+  
+    updateMarginBottom(); // Run on mount
+    window.addEventListener("resize", updateMarginBottom); // Adjust on window resize
+  
+    return () => window.removeEventListener("resize", updateMarginBottom); // Cleanup
+  }, []);
 
   return (
     <motion.div
@@ -625,12 +646,14 @@ const Item = ({ food, description, price }: MenuType) => {
         initial={false}
         animate={{
           height: open ? height : "0px",
-          marginBottom: open ? "130px" : "0px",
+          marginBottom: open ? marginBottom : "0px", // Use marginBottom from state
         }}
-        className={`text-black text-xl font-semibold ${ open ? "overflow-visible":"overflow-hidden" }`}
+        className={`text-black text-xl font-semibold ${
+          open ? "overflow-visible" : "overflow-hidden"
+        }`}
       >
-        <p ref={ref}>{description}</p>
-        <p ref={ref} className="mt-3">${price}</p>
+        <p ref={ref} className="text-xl">{description}</p>
+        <p ref={ref} className="mt-3 text-red-800">${price}</p>
       </motion.div>
     </motion.div>
   );
@@ -671,7 +694,7 @@ export const MenuOne = () => {
     const [selected, setSelected] = useState(TABS[0]);
   
     return (
-      <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 mx-96 border-white border-4 rounded-xl shadow-xl shadow-slate-200  mt-20">
+      <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 md:mx-28 border-white border-4 rounded-xl shadow-xl shadow-slate-200  mt-20">
         <Heading />
         <Tabs selected={selected} setSelected={setSelected} />
         <Items selected={selected} />
