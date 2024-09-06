@@ -25,7 +25,7 @@ const FoodGrid: React.FC<FoodGridProps> = ({ images }) => {
           key={index}
           className="relative overflow-hidden cursor-pointer aspect-h-2 aspect-w-3 rounded-lg lg:aspect-h-6 lg:aspect-w-6"
           whileHover={{ scale: 1.05 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+          
           onClick={() => handleImageClick(image)}
         >
           <img
@@ -54,10 +54,10 @@ const FoodGrid: React.FC<FoodGridProps> = ({ images }) => {
               exit={{ opacity: 0, y: 50 }}
             />
             <div
-              className="absolute top-0 right-0 p-4 cursor-pointer"
+              className="absolute top-28 right-0 p-4 cursor-pointer"
               onClick={handleCloseModal}
             >
-              <span className="text-white text-2xl">&#x2715;</span>
+              <span className="text-black text-5xl border-4 border-black p-2 font-bold bg-white font-dosis">X</span>
             </div>
           </motion.div>
         )}
