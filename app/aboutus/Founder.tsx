@@ -22,7 +22,7 @@ const Founder = () => {
             <div className="w-full max-w-2xl xl:max-w-none xl:flex-auto xl:px-16 xl:py-24">
               <figure className="relative isolate pt-9 md:pt-0 ">
                 <blockquote className=" font-extralight font-dosis leading-8 text-white sm:leading-9">
-                  <p className="text-balance text-lg md:text-2xl ">
+                  <p className="text-balance text-lg md:text-2xl 2xl:text-3xl ">
                     Jose Zavala Hernandez, a native of Mexico City, Mexico,
                     possessed an innate entrepreneurial spirit. From a young
                     age, he delved into the restaurant business, selling tacos

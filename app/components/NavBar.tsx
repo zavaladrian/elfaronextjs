@@ -28,7 +28,7 @@ const Navbar = () => {
         <Link href="/" className="lg:-m-1.5 lg:p-1.5 md:-m-1.5 md:p-1.5">
           <span className="sr-only ">El Faro 2</span>
           <Image
-            className="h-10 w-auto hover:saturate-200"
+            className="h-10 2xl:h-20 w-auto hover:saturate-200 "
             src="/logo.png"
             alt="home"
             width={20}
@@ -52,7 +52,7 @@ const Navbar = () => {
             <Link key={item.name} href={item.href}>
               <motion.button
                 type="button"
-                className="text-2xl xl:text-3xl 3xl:text-4xl font-semibold leading-6 text-gray-900 rounded hover:text-red-600"
+                className="text-2xl xl:text-3xl 2xl:text-5xl font-semibold leading-6 text-gray-900 rounded hover:text-red-600"
                 whileHover={{ scale: 1.3 }}
                 onClick={handleNav}
               >
@@ -62,6 +62,8 @@ const Navbar = () => {
           ))}
         </div>
       </nav>
+
+{/* mobile view */}
 
       <Dialog
         as="div"
@@ -100,7 +102,7 @@ const Navbar = () => {
                   <Link key={item.name} href={item.href}>
                     <motion.a
                       onClick={handleNav}
-                      className="-mx-3 block rounded-lg px-3 py-4 font-semibold leading-7 text-gray-900 text-4xl  hover:text-red-600 font-lobster"
+                      className="-mx-3 block rounded-lg px-3 py-4 font-semibold leading-7 text-gray-900 text-4xl md:text-6xl hover:text-red-600 font-lobster"
                       whileHover={{ scale: 1.15 }}
                       initial={{ x: -150 }}
                       animate={{ x: 20 }}

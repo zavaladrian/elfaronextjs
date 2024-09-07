@@ -119,7 +119,7 @@ const Question = ({ company, answer, website }: QuestionType) => {
       >
         <span
           className={`text-left text-lg sm:text-3xl 3xl:text-5xl 3xl:mb-10 font-medium transition-colors ${
-            open ? "text-slate-50" : "text-yellow-500"
+            open ? "text-slate-50" : "text-red-600"
           }`}
         >
           {company}

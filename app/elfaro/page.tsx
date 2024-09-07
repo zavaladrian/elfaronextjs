@@ -7,16 +7,16 @@ import { FaroOne } from "../components/directions/faroDirect";
 
 
 
-const ElFaroTwoPage = () => {
+const ElFaroOnePage = () => {
   return (
     <>
       <div className="text-center text-white bg-black ">
           <Image
-          alt="El Faro 2 logo"
+          alt="El Faro 1 logo"
           width={400}
           height={0}
           src="/faro1logo.png"
-          className=" mx-auto h-48 lg:h-56 xl:h-72 w-auto mt-12 hover:saturate-200"
+          className=" mx-auto h-48 md:h-60 lg:h-56 xl:h-72 2xl:h-96 w-auto mt-12 hover:saturate-200"
           />
       <MenuOne />
       <Directions data={FaroOne} />
@@ -25,4 +25,4 @@ const ElFaroTwoPage = () => {
   );
 };
 
-export default ElFaroTwoPage;
+export default ElFaroOnePage;
