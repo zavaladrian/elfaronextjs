@@ -37,16 +37,16 @@ export default function TimelinePage() {
     <>
       <div className="w-full h-screen overflow-hidden relative lg:grid place-items-center hidden md:block">
         <h1
-          className="font-bold font-pacifico text-red-900 md:top-48 lg:top-0 lg:right-52  text-7xl md:text-8xl relative z-10 text-stroke-2px text-stroke-black 
+          className="font-bold font-pacifico text-red-900 md:top-48 lg:top-0 lg:right-52 md:text-8xl 2xl:text-9xl relative z-10 text-stroke-2px text-stroke-black 
           "
         >
           El Faro
         </h1>
-        <img src="/bglighthouse.png" className=" absolute h-screen w-screen top-0 left-0 z-0" />
+        <img src="/bglighthouse.png" className=" absolute md:h-[65vh] lg:h-screen w-screen top-0 left-0 z-0" />
       </div>
      
       <div className=" text-center">
-        <h1 className="font-pacifico text-7xl sm:text-6xl lg:text-8xl text-white underline border-y-8 pb-20 pt-5 border-black">
+        <h1 className="font-pacifico text-7xl sm:text-6xl lg:text-8xl 2xl:text-9xl text-white underline border-y-8 pb-20 pt-5 border-black md:-mt-96 lg:-mt-0">
           About Us
         </h1>
       </div>
@@ -80,7 +80,7 @@ export default function TimelinePage() {
         </motion.div>
 
         {/* Pictures */}
-        <div className="flex p-3 gap-2">
+        <div className="flex p-3 gap-2 2xl:gap-5">
           <div className="w-1/2">
             <div className="h-fit overflow-hidden">
               <img
@@ -146,7 +146,7 @@ export default function TimelinePage() {
           </div>
         </motion.div>
         {/* Left Pic*/}
-        <div className=" flex p-3 gap-2 2xl:gap-5 3xl:gap-0">
+        <div className=" flex p-3 gap-2 2xl:gap-5">
           <div className="w-1/2 3xl:mx-60">
             <div className=" h-fit overflow-hidden">
               <img

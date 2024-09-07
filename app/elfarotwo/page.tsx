@@ -16,7 +16,7 @@ const ElFaroTwoPage = () => {
           width={400}
           height={0}
           src="/faro2logo.png"
-          className=" mx-auto h-48 lg:h-56 xl:h-72 w-auto mt-12 hover:saturate-200"
+          className=" mx-auto h-48 md:h-60 lg:h-56 xl:h-72 2xl:h-96 w-auto mt-12 hover:saturate-200"
           />
       <MenuTwo />
       <Directions data={FaroTwo} />
