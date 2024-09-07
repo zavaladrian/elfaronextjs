@@ -114,6 +114,12 @@ const MENUITEMS = {
       price: "7.99",
     },
     {
+      food: "Ground Beef Burrito",
+      description:
+      "Our ground beef wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
+      price: "7.99",
+    },
+    {
       food: "Tongue Burrito",
       description:
         "Our seasoned tongue wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
@@ -136,12 +142,6 @@ const MENUITEMS = {
       description:
         "Your choice of two different proteins wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
       price: "7.99+",
-    },
-    {
-      food: "Steak Burrito",
-      description:
-        "Our seasoned steak wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
-      price: "7.99",
     },
     {
       food: "Suizo Burrito",
@@ -167,11 +167,6 @@ const MENUITEMS = {
         "A cheese stuffed poblano pepper fried cooked with a meat of your choice and then wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
       price: "9.99+",
     },
-    {
-      food: "Burrito Dinner",
-      description: "A burrito of your choice served with a side of rice and beans",
-      price: "9.99+",
-    },
   ],
   Tortas: [
     {
@@ -193,6 +188,12 @@ const MENUITEMS = {
       price: "6.75",
     },
     {
+      food: "Ground Beef Torta",
+      description:
+        "A sandwich served on a soft roll and filled with ground beef and toppings such as crema, beans, cheese, tomatoes and lettuce",
+      price: "6.75",
+    },
+    {
       food: "Tongue Torta",
       description:
         " A sandwich served on a soft roll and filled with tongue and toppings such as crema, beans, cheese, tomatoes, and lettuce",
@@ -209,6 +210,12 @@ const MENUITEMS = {
       description:
         " A sandwich served on a soft roll and filled with a flatten breaded chicken and toppings such as crema, beans, cheese, tomatoes, and lettuce",
       price: "7.75",
+    },
+    {
+      food: "Cecina Torta",
+      description:
+        "A sandwich served on a soft roll and filled with salt-cured, air-dried beef, and toppings such as crema, beans, cheese, tomatoes and lettuce",
+      price: "8.75",
     },
     {
       food: "Mixed Torta",
@@ -234,11 +241,6 @@ const MENUITEMS = {
         "A sandwich served on a soft roll and filled with a stuffed poblano pepper and mixed with a protein of your choice and toppings such as crema, rice, beans, cheese, tomatoes and lettuce",
       price: "8.99+",
     },
-    {
-      food: "Torta Dinner",
-      description: "A torta of your choice served with a side of rice and beans",
-      price: "8.75+",
-    },
   ],
   Tacos: [
     {
@@ -260,9 +262,21 @@ const MENUITEMS = {
       price: "2.99",
     },
     {
+      food: "Ground Beef Taco",
+      description:
+        "With your choice of tortilla, corn or flour, which is folded with ground beef, which lettuce and tomato or onion and cilantro",
+      price: "2.99",
+    },
+    {
       food: "Tongue Taco",
       description:
         "With your choice of tortilla, corn or flour, which is folded with tongue, which lettuce and tomato or onion and cilantro",
+      price: "3.99",
+    },
+    {
+      food: "Cecina Taco",
+      description:
+        "With your choice of tortilla, corn or flour, which is folded with a thin sliced beef, and lettuce and tomato or onion and cilantro",
       price: "3.99",
     },
     {
@@ -276,11 +290,6 @@ const MENUITEMS = {
       description:
         "With your choice of tortilla, corn or flour, which is folded with a cheese stuffed poblano pepper, and topped with rice, beans, lettuce and tomato",
       price: "4.75",
-    },
-    {
-      food: "Taco Dinner",
-      description: "Three tacos of your choice served with a side of rice and beans",
-      price: "10.99+",
     },
   ],
   Tostadas: [
@@ -303,6 +312,12 @@ const MENUITEMS = {
       price: "3.75",
     },
     {
+      food: "Ground Beef Tostada",
+      description:
+        "A flat tortilla that is deep-fried that is topped with ground beef, beans, cheese, lettuce and tomatoes",
+      price: "3.75",
+    },
+    {
       food: "Tongue Tostada",
       description:
         "A flat tortilla that is deep-fried that is topped with tongue, beans, cheese, lettuce and tomatoes",
@@ -313,12 +328,6 @@ const MENUITEMS = {
       description:
         "A flat tortilla that is deep-fried that is topped with avocado, beans, cheese, lettuce and tomatoes",
       price: "3.75",
-    },
-    {
-      food: "Tostada Dinner",
-      description:
-        "Two tostadas of your choice served with a side of rice and beans",
-      price: "9.50+",
     },
   ],
   Dinners: [
@@ -352,7 +361,7 @@ const MENUITEMS = {
     {
       food: "Enchiladas Dinner",
       description:
-        "Three enchiladas with mole sauce served with a side of rice and beans",
+        "Three enchiladas with your choice of red or mole sauce served with a side of rice and beans",
       price: "8.99+",
     },
     {
@@ -481,13 +490,13 @@ const MENUITEMS = {
     {
       food: "Pozole",
       description:
-        "Made with pork shoulder or shanks, red chiles, and lots of hominy corn. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
+        "Made with pork shoulder or shanks, red chiles, and lots of hominy corn. We have a dine-in portion, a 32 oz and 64 oz to-go portions. Available only on the weekends.",
       price: "10.99,  $15.99",
     },
     {
       food: "Menudo",
       description:
-        "A peppery soup filled with tripe, posole, and pig trotters. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
+        "A peppery soup filled with tripe, posole, and pig trotters. We have a dine-in portion, a 32 oz and 64 oz to-go portions. Available only on the weekends.",
       price: "10.99,  $15.99",
     },
   ],
@@ -513,7 +522,7 @@ const MENUITEMS = {
     {
       food: "32 oz Aqua Frescas Drink",
       description:
-        "Your choice between our homemade Horchata, Limeade, or Jamica (Hibiscus). Refills are $2.",
+        "Your choice between our homemade Horchata, Tamrid, or Jamica (Hibiscus). Refills are $2.",
       price: "4.75",
     },
     {

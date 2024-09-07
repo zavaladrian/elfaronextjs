@@ -7,7 +7,6 @@ import useMeasure from "react-use-measure";
 import OrderOnline from "../components/orderonline/OrderOnline";
 import { oneservices } from "../components/orderonline/onlineservices";
 
-
 const MENUITEMS = {
   Breakfast: [
     {
@@ -22,12 +21,17 @@ const MENUITEMS = {
         "Three eggs scrambled with jalapenos, onions, and tomatoes served with rice and beans on the side. It comes with either corn or flour tortillas.",
       price: "8.99",
     },
-    
     {
       food: "Steak and Eggs Dinner",
       description:
         "Our seasoned chopped steak scrambled with three eggs served with rice and beans on the side. It comes with either corn or flour tortillas.",
       price: "8.99",
+    },
+    {
+        food: "Ham and Eggs Dinner",
+        description:
+          "Ham scrambled with three eggs served with rice and beans on the side. It comes with either corn or flour tortillas.",
+        price: "8.99",
     },
     {
       food: "Breakfast Burrito",
@@ -80,22 +84,10 @@ const MENUITEMS = {
       price: "8.99",
     },
     {
-      food: "Breaded Chicken Burrito",
-      description:
-        "A thin cut of steak that is breaded and fried then wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
-      price: "8.99",
-    },
-    {
       food: "Mixed Burrito",
       description:
         "Your choice of two different proteins wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
       price: "7.99+",
-    },
-    {
-      food: "Steak Burrito",
-      description:
-        "Our seasoned steak wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
-      price: "7.99",
     },
     {
       food: "Suizo Burrito",
@@ -119,11 +111,6 @@ const MENUITEMS = {
       food: "Chile Relleno with Meat Burrito",
       description:
         "A cheese stuffed poblano pepper fried cooked with a meat of your choice and then wrapped in a burrito shell that comes with beans, cheese, lettuce and tomatoes.",
-      price: "9.99+",
-    },
-    {
-      food: "Burrito Dinner",
-      description: "A burrito of your choice served with a side of rice and beans",
       price: "9.99+",
     },
   ],
@@ -159,12 +146,6 @@ const MENUITEMS = {
       price: "7.75",
     },
     {
-      food: "Breaded Chicken Torta",
-      description:
-        " A sandwich served on a soft roll and filled with a flatten breaded chicken and toppings such as crema, beans, cheese, tomatoes, and lettuce",
-      price: "7.75",
-    },
-    {
       food: "Mixed Torta",
       description:
         "A sandwich served on a soft roll and filled with your choice of two proteins and toppings such as crema, beans, cheese, tomatoes and lettuce",
@@ -187,11 +168,6 @@ const MENUITEMS = {
       description:
         "A sandwich served on a soft roll and filled with a stuffed poblano pepper and mixed with a protein of your choice and toppings such as crema, rice, beans, cheese, tomatoes and lettuce",
       price: "8.99+",
-    },
-    {
-      food: "Torta Dinner",
-      description: "A torta of your choice served with a side of rice and beans",
-      price: "8.75+",
     },
   ],
   Tacos: [
@@ -231,11 +207,6 @@ const MENUITEMS = {
         "With your choice of tortilla, corn or flour, which is folded with a cheese stuffed poblano pepper, and topped with rice, beans, lettuce and tomato",
       price: "4.75",
     },
-    {
-      food: "Taco Dinner",
-      description: "Three tacos of your choice served with a side of rice and beans",
-      price: "10.99+",
-    },
   ],
   Tostadas: [
     {
@@ -267,12 +238,6 @@ const MENUITEMS = {
       description:
         "A flat tortilla that is deep-fried that is topped with avocado, beans, cheese, lettuce and tomatoes",
       price: "3.75",
-    },
-    {
-      food: "Tostada Dinner",
-      description:
-        "Two tostadas of your choice served with a side of rice and beans",
-      price: "9.50+",
     },
   ],
   Dinners: [
@@ -337,12 +302,6 @@ const MENUITEMS = {
       food: "Milanesa de Res Dinner",
       description:
         "A thin cut of steak that is breaded and fried served with a side of rice and beans",
-      price: "9.99+",
-    },
-    {
-      food: "Milanesa de Pollo Dinner",
-      description:
-        "A thin cut of chicken that is breaded and fried served with a side of rice and beans",
       price: "9.99+",
     },
   ],
@@ -421,28 +380,16 @@ const MENUITEMS = {
   ],
   Soups: [
     {
-      food: "Caldo de Res",
-      description:
-        "A beef soup made with a beef broth and filled with lots of vegetables. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
-      price: "10.99,  $15.99",
-    },
-    {
-      food: "Caldo de Pollo",
-      description:
-        "A chicken soup made with a chicken broth and filled with lots of vegetables. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
-      price: "10.99,  $15.99",
-    },
-    {
       food: "Pozole",
       description:
-        "Made with pork shoulder or shanks, red chiles, and lots of hominy corn. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
-      price: "10.99,  $15.99",
+        "Made with pork shoulder or shanks, red chiles, and lots of hominy corn. Only available on Saturaday.",
+      price: "10.99",
     },
     {
       food: "Menudo",
       description:
-        "A peppery soup filled with tripe, posole, and pig trotters. We have a dine-in portion, a 32 oz and 64 oz to-go portions.",
-      price: "10.99,  $15.99",
+        "A peppery soup filled with tripe, posole, and pig trotters. Only Available on Sunday.",
+      price: "10.99",
     },
   ],
   Drinks: [
@@ -453,22 +400,10 @@ const MENUITEMS = {
       price: "2.25",
     },
     {
-      food: "32 oz Fountain Drink",
-      description:
-        "Your choice of RC, Diet RC, 7-UP, Dr. Pepper, Mystic Raspberry Iced Tea, Pink Lemonade, Strawberry Nehi, or Orange Nehi. You can unlimited refills.",
-      price: "3.99",
-    },
-    {
       food: "16 oz Aqua Frescas Drink",
       description:
-        "Your choice between our homemade Horchata, Tamrid, or Jamica (Hibiscus). Refills are $1.",
+        "Your choice between our homemade Horchata or Jamica (Hibiscus). Refills are $1.",
       price: "2.75",
-    },
-    {
-      food: "32 oz Aqua Frescas Drink",
-      description:
-        "Your choice between our homemade Horchata, Limeade, or Jamica (Hibiscus). Refills are $2.",
-      price: "4.75",
     },
     {
       food: "Jarritos",
@@ -487,24 +422,12 @@ const MENUITEMS = {
       price: "2.75",
     },
     {
-      food: "Canned Drink",
-      description: "Your choice of Coke and Diet Coke",
-      price: "1.75",
-    },
-    {
       food: "Coffee",
       description: "Fresh daily brew of coffee with a hint of cinnamon",
       price: "2.00",
     },
-    {
-      food: "Coffee de Olla",
-      description:
-        "Specialty coffee made of ground coffee, cinnamon, and piloncillo also made daily",
-      price: "4.25",
-    },
   ],
 };
-
 
 
 const Heading = () => {

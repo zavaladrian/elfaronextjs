@@ -27,10 +27,10 @@ const OrderOnline: React.FC<OrderProps> = ({ services }) => {
                 <Link href={service.online} key={service.id} target="_blank">
                   <div className="ml-8 mt-4 flex flex-shrink-0 justify-center lg:ml-4 lg:flex-grow-0 gap-y-3">
                     <Image
-                      className="h-10 mx-7 sm:mx-0 md:h-24 hover:saturate-200"
+                      className="mx-7 sm:mx-0 md:h-24 hover:saturate-200"
                       src={service.logo}
                       alt={service.name}
-                      height={100}
+                      height={200}
                       width={200}
                     />    
                   </div>
