@@ -23,12 +23,12 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white sticky z-50 top-0 right-0 left-0 pt-2 font-lobster">
+    <div className="bg-white sticky z-50 top-0 right-0 left-0 pt-2 2xl:pt-1 font-lobster">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
         <Link href="/" className="lg:-m-1.5 lg:p-1.5 md:-m-1.5 md:p-1.5">
           <span className="sr-only ">El Faro 2</span>
           <Image
-            className="h-10 2xl:h-20 w-auto hover:saturate-200 "
+            className="h-10 2xl:h-15 w-auto hover:saturate-200 "
             src="/logo.png"
             alt="home"
             width={20}
@@ -52,7 +52,7 @@ const Navbar = () => {
             <Link key={item.name} href={item.href}>
               <motion.button
                 type="button"
-                className="text-2xl xl:text-3xl 2xl:text-5xl font-semibold leading-6 text-gray-900 rounded hover:text-red-600"
+                className="text-2xl xl:text-3xl 2xl:text-4xl font-semibold leading-6 text-gray-900 rounded hover:text-red-600"
                 whileHover={{ scale: 1.3 }}
                 onClick={handleNav}
               >
