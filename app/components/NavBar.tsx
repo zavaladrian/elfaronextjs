@@ -100,7 +100,7 @@ const Navbar = () => {
               <div className="space-y-8 py-10 left-5">
                 {navigation.map((item) => (
                   <Link key={item.name} href={item.href}>
-                    <motion.a
+                    <motion.p
                       onClick={handleNav}
                       className="-mx-3 block rounded-lg px-3 py-4 font-semibold leading-7 text-gray-900 text-4xl md:text-6xl hover:text-red-600 font-lobster"
                       whileHover={{ scale: 1.15 }}
@@ -113,7 +113,7 @@ const Navbar = () => {
                       }}
                     >
                       {item.name}
-                    </motion.a>
+                    </motion.p>
                   </Link>
                 ))}
               </div>
