@@ -434,10 +434,10 @@ const Heading = () => {
   return (
     <>
       <div className="relative z-10 flex flex-col items-center justify-center">
-        <span className="mb-8 text-white  font-pacifico text-6xl xl:text-7xl 2xl:text-8xl ">
+        <span className="mb-8 text-white  font-pacifico text-6xl ">
           Check Out Our Menu
         </span>
-        <button className="mb-8 text-5xl xl:text-7xl 2xl:text-8xl font-bold font-cinzel bg-white shadow-md p-2 shadow-red-700 rounded-lg" disabled>
+        <button className="mb-8 text-5xl font-bold font-cinzel bg-white shadow-md p-2 shadow-red-700 rounded-lg" disabled>
             <p className="text-red-900">El Faro</p>
         </button>
       </div>
@@ -471,7 +471,7 @@ const Tabs = ({
       {TABS.map((tab) => (
         <button
           onClick={() => setSelected(tab)}
-          className={`relative overflow-hidden whitespace-nowrap rounded-xl border-[1px] px-3 py-1.5 text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-medium transition-colors duration-500 ${
+          className={`relative overflow-hidden whitespace-nowrap rounded-xl border-[1px] px-3 py-1.5 text-xl lg:text-2xl font-extrabold transition-colors duration-500 ${
             selected === tab
               ? "border-red-500 text-slate-50"
               : "border-slate-600 bg-gradient-to-l from-white to-yellow-500 text-black"
@@ -533,7 +533,7 @@ const Item = ({ food, description, price }: MenuType) => {
   return (
     <motion.div
       animate={open ? "open" : "closed"}
-      className={`rounded-xl border-[1px] border-slate-700 px-4 xl:-mx-20 2xl:py-6 2xl:-mx-80 transition-colors ${
+      className={`rounded-xl border-[1px] border-slate-700 px-4 xl:-mx-24 2xl:py-6  transition-colors ${
         open ? "bg-white" : "bg-black"
       }`}
     >
@@ -542,7 +542,7 @@ const Item = ({ food, description, price }: MenuType) => {
         className="flex w-full items-center justify-between gap-4 py-4"
       >
         <span
-          className={`text-left text-xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold transition-colors ${
+          className={`text-left text-xl lg:text-2xl xl:text-2xl font-bold transition-colors ${
             open ? "text-rose-900" : "text-white"
           }`}
         >
@@ -575,8 +575,8 @@ const Item = ({ food, description, price }: MenuType) => {
           open ? "overflow-visible" : "overflow-hidden"
         }`}
       >
-        <p ref={ref} className="text-xl xl:text-2xl 2xl:text-3xl">{description}</p>
-        <p ref={ref} className="mt-3 text-red-800 lg:text-2xl xl:text-3xl 2xl:text-4xl">${price}</p>
+        <p ref={ref} className=" mt-3 text-base xl:text-lg 2xl:text-xl">{description}</p>
+        <p ref={ref} className="mt-3 text-red-800 text-xl xl:text-2xl ">${price}</p>
       </motion.div>
     </motion.div>
   );
@@ -617,7 +617,7 @@ export const MenuOne = () => {
     const [selected, setSelected] = useState(TABS[0]);
   
     return (
-      <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 md:mx-28 border-white border-4 rounded-xl shadow-xl shadow-slate-200  mt-20">
+      <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 lg:mx-60 xl:mx-20 2xl:mx-64 border-white border-4 rounded-xl shadow-xl shadow-slate-200 mt-20">
         <Heading />
         <Tabs selected={selected} setSelected={setSelected} />
         <Items selected={selected} />

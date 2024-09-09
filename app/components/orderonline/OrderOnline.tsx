@@ -18,7 +18,7 @@ const OrderOnline: React.FC<OrderProps> = ({ services }) => {
     <div className="sm:mx-20 -my-4">
       <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
         <div className="lg:grid lg:grid-cols-1 lg:gap-8">
-          <h2 className="mx-auto max-w-lg  xl:max-w-screen-xl text-center text-3xl sm:text-4xl lg:text-5xl 2xl:text-7xl font-bold tracking-tight text-white font-roboto underline">
+          <h2 className="mx-auto max-w-lg  xl:max-w-screen-xl text-center sm:text-4xl lg:text-5xl  font-bold tracking-tight text-white font-roboto underline">
             Online Pick Up And Delivery Services 
           </h2>
           <div className="mt-8 flow-root justify-center lg:mt-0">
@@ -27,7 +27,7 @@ const OrderOnline: React.FC<OrderProps> = ({ services }) => {
                 <Link href={service.online} key={service.id} target="_blank">
                   <div className="ml-8 mt-4  justify-center lg:ml-4 gap-y-3">
                     <Image
-                      className="hover:saturate-200 md:h-28 lg:h-40 xl:h-52 2xl:h-64 w-auto"
+                      className="hover:saturate-200 lg:h-40  w-auto"
                       src={service.logo}
                       alt={service.name}
                       height={100}

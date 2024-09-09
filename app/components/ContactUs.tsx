@@ -6,20 +6,20 @@ const ContactUs = () => {
   return (
     <div className="bg-white text-center">
       <div className="mx-auto p-5 ">
-        <p className=" mb-12 text-4xl sm:text-6xl 2xl:text-8xl text-rose-950 font-black font-lobster underline">
+        <p className=" mb-12 text-4xl sm:text-6xl text-rose-950 font-black font-lobster underline">
           Visit One of Our Locations
         </p>
         <div className="mx-auto max-w-lg md:grid md:max-w-none md:grid-cols-2">
           <div>
             <div>
-              <h2 className="text-4xl text-red-900 -mt-3 sm:mt-3 mb-3 sm:text-4xl 2xl:text-6xl sm:tracking-tight font-cinzel hover:underline">
+              <h2 className="text-4xl text-red-900 -mt-3 sm:mt-3 mb-3 sm:text-4xl sm:tracking-tight font-cinzel hover:underline">
                 El Faro 1
               </h2>
-              <h2 className="text-3xl font-medium text-gray-900  sm:text-4xl 2xl:text-6xl sm:tracking-tight underline font-lobster">
+              <h2 className="text-3xl font-medium text-gray-900  sm:text-4xl sm:tracking-tight underline font-lobster">
                 Summit
               </h2>
 
-              <div className="mt-2 text-2xl 2xl:text-4xl font-dosis">
+              <div className="mt-2 text-2xl  font-dosis">
                 <div className="inline-flex">
                   <HomeIcon
                     className="h-6 w-6 text-red-500 fill-red-700"
@@ -39,7 +39,7 @@ const ContactUs = () => {
                   />
                 </div>
 
-                <div className="font-dosis mt-1 text-2xl 2xl:text-4xl  text-black">
+                <div className="font-dosis mt-1 text-2xl text-black">
                   <p>+1 (708) 563-1022</p>
                   <div className="mt-1 ">
                     <div className="inline-flex mt-2">
@@ -72,7 +72,7 @@ const ContactUs = () => {
                               hover:before:translate-y-[0%]
                               active:scale-95`}
                   >
-                    <span className="2xl:text-3xl">View the Menu</span>
+                    <span className="2xl:text-2xl">View the Menu</span>
                   </button>
                 </Link>
               </div>
@@ -81,14 +81,14 @@ const ContactUs = () => {
 
           <div>
             <div>
-              <h2 className="text-4xl  text-red-900 mt-6 mb-5 md:mt-3 md:mb-3 sm:text-4xl 2xl:text-6xl sm:tracking-tight font-cinzel hover:underline">
+              <h2 className="text-4xl  text-red-900 mt-6 mb-5 md:mt-3 md:mb-3 sm:text-4xl  sm:tracking-tight font-cinzel hover:underline">
                 El Faro 2
               </h2>
-              <h2 className="text-3xl 2xl:text-6xl  font-medium text-gray-900  sm:text-4xl sm:tracking-tight underline font-lobster">
+              <h2 className="text-3xl font-medium text-gray-900  sm:text-4xl sm:tracking-tight underline font-lobster">
                 Riverside
               </h2>
 
-              <div className="mt-2 text-2xl 2xl:text-4xl font-dosis">
+              <div className="mt-2 text-2xl  font-dosis">
                 <div className="inline-flex">
                   <HomeIcon
                     className="h-6 w-6 text-red-500 fill-red-700"
@@ -108,7 +108,7 @@ const ContactUs = () => {
                   />
                 </div>
 
-                <div className="font-dosis mt-1 text-2xl 2xl:text-4xl text-black">
+                <div className="font-dosis mt-1 text-2xl text-black">
                   <p>+1 (708) 777-1347</p>
                   <div className="mt-1 ">
                     <div className="inline-flex mt-2">
@@ -141,7 +141,7 @@ const ContactUs = () => {
                               hover:before:translate-y-[0%]
                               active:scale-95`}
                   >
-                    <span className="2xl:text-3xl">View the Menu</span>
+                    <span className="2xl:text-2xl">View the Menu</span>
                   </button>
                 </Link>
               </div>
