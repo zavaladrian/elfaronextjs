@@ -24,9 +24,12 @@ const Navbar = () => {
 
   return (
     <div className="bg-white sticky z-50 top-0 right-0 left-0 pt-2 2xl:pt-1 font-lobster">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+      <nav className="mx-auto flex max-w-7xl justify-between p-6 lg:px-8">
+        <Link href='/'>
+      <p className="text-3xl text-red-950 font-extrabold lg:hidden">El Faro</p>
+      </Link>
         <Link href="/" className="lg:-m-1.5 lg:p-1.5 md:-m-1.5 md:p-1.5">
-          <span className="sr-only ">El Faro 2</span>
+          <span className="sr-only ">El Faro </span>
           <Image
             className="h-10 2xl:h-15 w-auto hover:saturate-200 "
             src="/logo.png"
@@ -36,14 +39,16 @@ const Navbar = () => {
           />
         </Link>
 
-        <div className="flex lg:hidden">
+{/* mobile view */}
+        <div className="flex lg:hidden text-center">
+     
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon className="h-10 w-10 text-red-600" aria-hidden="true" />
+            <Bars3Icon className="h-10 w-10 text-red-950" aria-hidden="true" />
           </button>
         </div>
 
@@ -63,7 +68,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-{/* mobile view */}
+
 
       <Dialog
         as="div"
@@ -84,7 +89,7 @@ const Navbar = () => {
                 height={20}
               />
             </Link>
-
+                
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-gray-700"
