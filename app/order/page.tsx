@@ -194,9 +194,9 @@ const TABS = ["El Faro", "El Faro 2"];
 const RESTURANTS = {
   "El Faro": [
     {
-      company: "Grubhub",
+      company: "UberEats",
       answer: "Delivery / Pickup Menu",
-      website: "http://menus.fyi/2443596 ",
+      website: "https://www.order.store/store/el-faro/WzM9BLY9Xnugvft3qtEN7Q",
     },
     {
       company: "Picking Up?",
@@ -206,11 +206,6 @@ const RESTURANTS = {
     },
   ],
   "El Faro 2": [
-    {
-      company: "Grubhub",
-      answer: "Delivery / Pickup",
-      website: "http://menus.fyi/2033698",
-    },
     {
       company: "UberEats",
       answer: "Delivery / Pickup",
