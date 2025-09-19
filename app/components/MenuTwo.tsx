@@ -751,11 +751,12 @@ export const MenuTwo = () => {
     const [selected, setSelected] = useState(TABS[0]);
   
     return (
-      <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 lg:mx-60 xl:mx-20 2xl:mx-64 border-white border-4 rounded-xl shadow-xl shadow-slate-200 mt-20">
-        <Heading />
-        <Tabs selected={selected} setSelected={setSelected} />
-        <Items selected={selected} />
-        <OrderOnline services={twoservices} />
-      </section>
+      // <section className="overflow-hidden bg-rose-950 px-4 py-12 text-slate-50 lg:mx-60 xl:mx-20 2xl:mx-64 border-white border-4 rounded-xl shadow-xl shadow-slate-200 mt-20">
+      //   <Heading />
+      //   <Tabs selected={selected} setSelected={setSelected} />
+      //   <Items selected={selected} />
+      //   <OrderOnline services={twoservices} />
+      // </section>
+      <p className=" font-serif text-2xl p-10 m-10">Menu Prices Under Construction</p>
     );
   };
