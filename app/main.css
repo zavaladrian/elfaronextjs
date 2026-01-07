@@ -13,8 +13,29 @@
 @tailwind utilities;
 
 
+:root {
+  --accent: #ef4444;      /* default (red-500-ish) */
+  --accent-hover: #dc2626;/* default hover (red-600-ish) */
+}
+
+html[data-location="home"] {
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
+}
+
+html[data-location="one"] {
+  --accent: #ef4444;
+  --accent-hover: #dc2626;
+}
+
+html[data-location="two"] {
+  --accent: #b91c1c;      /* deeper “brick” */
+  --accent-hover: #991b1b;
+}
+
+
 body {
-    background-color: black;
+    background-color: white;
 }
 
 

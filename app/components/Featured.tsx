@@ -1,4 +1,4 @@
-"use client";
+import Image from "next/image";
 
 const features = [
   {
@@ -6,9 +6,8 @@ const features = [
     name: "Burritos",
     description:
       "We use a flour tortilla and wrap beans, cheese, lettuce, and tomatoes with your choice of meat.",
-
     imageSrc: "/burrito.png",
-    imageAlt: "burritos",
+    imageAlt: "Burritos",
   },
   {
     id: 2,
@@ -17,7 +16,7 @@ const features = [
       "Consisting of pieces of corn tortillas that are fried, we sautéed with green or red salsa, and topped with cheese, crema and onion.",
     available: "-only available at Riverside",
     imageSrc: "/chila.jpg",
-    imageAlt: "chilaquiles",
+    imageAlt: "Chilaquiles",
   },
   {
     id: 3,
@@ -25,63 +24,71 @@ const features = [
     description:
       "Poblano peppers stuffed with cheese, then coated in a fluffy egg batter and fried until golden brown.",
     imageSrc: "/CR.png",
-    imageAlt: "Chile Relleno",
+    imageAlt: "Chile Rellenos",
   },
   {
-    id: 5,
+    id: 6,
     name: "Coffee de Olla",
     description:
       "This Mexican spiced coffee is made with ground coffee, cinnamon, and raw dark sugar called, piloncillo.",
     available: "-only available at Riverside",
     imageSrc: "/olla.jpg",
-    imageAlt: "Olla",
+    imageAlt: "Coffee de Olla",
   },
-
   {
     id: 4,
     name: "Menudo / Pozole",
-    description:
-      "Only served on the weekend, we have our own recipe of Pozole and Menudo",
+    description: "Only served on the weekend, we have our own recipe of Pozole and Menudo",
     imageSrc: "/soup.png",
     imageAlt: "Weekend Soup",
   },
+  {
+    id: 5,
+    name: "Large Menu",
+    description: "We have Tacos, Burritos, Tortas, Enchiladas, and much more! ",
+    imageSrc: "/menu5.jpeg",
+    imageAlt: "Collection of Food",
+  },
 ];
 
-const Featured = () => {
+export default function Featured() {
   return (
-    <div className="bg-white">
-      <div className="pt-6">
-        <h3 className="leading-9 text-rose-950 text-4xl sm:text-6xl md:text-7xl text-center underline font-lobster ">
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">
+      <header className="space-y-2">
+        <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
           Our Featured Items
-        </h3>
-      </div>
-      <div className="mx-auto max-w-xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8 ">
-        <div className="mt-2 space-y-12 lg:grid lg:grid-cols-5 lg:gap-x-8 lg:space-y-0 ">
-          {features.map((feature) => (
-            <a className="group block" key={feature.id}>
-              <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg lg:aspect-h-6 lg:aspect-w-6  shadow-xl shadow-rose-950">
-                <img
-                  src={feature.imageSrc}
-                  alt={feature.imageAlt}
-                  className="h-full w-full object-cover object-center "
-                />
-              </div>
-              <br />
-              <h2 className="mt-4 text-xl sm:text-4xl 2xl:text-2xl font-semibold font-playfair text-center text-black">
-                {feature.name}
-              </h2>
-              <p className="mt-2 text-lg sm:text-xl 2xl:text-2xl text-center font-dosis text-gray-600 text-balance">
-                {feature.description}
-              </p>
-              <p className="mt-2 text-lg 2xl:text-2xl sm:text-base text-center font-dosis text-rose-900 text-pretty">
-                {feature.available}
-              </p>
-            </a>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+        </h2>
+        <p className="text-sm text-black/70 sm:text-base">
+          A few favorites to start with.
+        </p>
+      </header>
 
-export default Featured;
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {features.map((f) => (
+          <article
+            key={f.id}
+            className="overflow-hidden rounded-3xl border border-black/10 bg-white shadow-sm"
+          >
+            <div className="relative aspect-[4/3]">
+              <Image
+                src={f.imageSrc}
+                alt={f.imageAlt}
+                fill
+                sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </div>
+
+            <div className="p-5">
+              <h3 className="text-lg font-extrabold tracking-tight">{f.name}</h3>
+              <p className="mt-2 text-sm text-black/70">{f.description}</p>
+              {f.available ? (
+                <p className="mt-2 text-xs font-semibold text-black/50">{f.available}</p>
+              ) : null}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+  );
+}

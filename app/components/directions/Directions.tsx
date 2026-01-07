@@ -1,123 +1,182 @@
-import React from "react";
+import Image from "next/image";
 import Link from "next/link";
 
-interface Feature {
+export interface Feature {
+  id: number;
   place: string;
   address: string;
   city: string;
+  phone: string;
+
   downtown: string;
   west: string;
   east: string;
   north: string;
   south: string;
+
   google: string;
   photo: string;
 }
 
 interface DirectionsProps {
   data: Feature[];
+  showHeader?: boolean;
+  wrap?: boolean;
+  className?: string;
+  compact?: boolean;
 }
 
-const Directions: React.FC<DirectionsProps> = ({ data }) => {
-  return (
-    <div className="bg-white sm:my-6 md:my-10 sm:mx-20 text-balance rounded-xl border-8 border-rose-900 shadow-lg shadow-slate-400">
-      <section
-        aria-labelledby="features-heading"
-        className="relative grid grid-s-1 lg:grid-cols-2"
-      >
-        <div className="aspect-h-1 aspect-w-3 overflow-hidden sm:aspect-w-5">
-          <img
-            src={data[0].photo}
-            alt="map"
-            className="h-full w-full object-cover hidden md:flex rounded-l-lg"
-          />
-        </div>
+function cn(...c: Array<string | false | undefined>) {
+  return c.filter(Boolean).join(" ");
+}
 
-        <div className="max-w-9xl px-4 pb-24 md:pt-16 text-center sm:px-6 sm:pb-32">
-          <h2
-            id="features-heading"
-            className="font-medium text-gray-500 text-4xl text-pretty"
-          >
+export default function Directions({
+  data,
+  showHeader = true,
+  wrap = true,
+  className,
+  compact = false,
+}: DirectionsProps) {
+  const content = (
+    <>
+      {showHeader ? (
+        <header className="space-y-2">
+          <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
             Come Visit Our Location
           </h2>
-          <p className="mt-4 text-gray-600 text-3xl pb-2 font-semibold text-pretty">
-            Directions to Our Restaurant:
+          <p className="text-sm text-black/70 sm:text-base">
+            Directions to our restaurant and quick links for Google Maps.
           </p>
+        </header>
+      ) : null}
 
-          {data.map((feature) => (
-            <div key={feature.place}>
-              <div className="text-red-800" >
-                <p className="mt-4 text-3xl md:text-4xl font-bold tracking-tight">
-                  {feature.place}
-                </p>
-                <p className="mt-2 text-2xl md:text-3xl font-bold tracking-tight">
-                  {feature.address}
-                </p>
-                <p className="mt-1 text-2xl md:text-3xl font-bold tracking-tight">
-                  {feature.city}
-                </p>
-                <br />
-              </div>
-              <dl className="gap-x-8 gap-y-10 space-y-4">
-                <dt className="font-medium text-gray-900 text-xl lg:text-2xl">
-                  From Downtown Chicago
-                </dt>
-                <dd className="mt-2 text-gray-500 font-semibold text-balance text-lg">
-                  {feature.downtown}
-                </dd>
-                <dt className="font-medium text-gray-900 text-xl lg:text-2xl">
-                  West Suburbs
-                </dt>
-                <dd className="mt-2 text-gray-500 font-semibold text-balance text-lg">
-                  {feature.west}
-                </dd>
-                <dt className="font-medium text-gray-900 text-xl lg:text-2xl">
-                  East Suburbs
-                </dt>
-                <dd className="mt-2 text-gray-500 font-semibold text-balance text-lg">
-                  {feature.east}
-                </dd>
-                <dt className="font-medium text-gray-900 text-xl lg:text-2xl">
-                  North Suburbs
-                </dt>
-                <dd className="mt-2 text-gray-500 font-semibold text-balance text-lg">
-                  {feature.north}
-                </dd>
-                <dt className="font-medium text-gray-900 text-xl lg:text-2xl">
-                  South Suburbs
-                </dt>
-                <dd className="mt-2 text-gray-500 pb-3 font-semibold text-balance text-lg">
-                  {feature.south}
-                </dd>
+      <div className={cn(showHeader && "mt-8")}>
+        <div className={className ?? "grid gap-6 lg:grid-cols-2"}>
+          {data.map((feature) => {
+            const tel = feature.phone.replace(/[^\d+]/g, "");
 
-                <Link href={feature.google} target="_blank">
-                  <button
-                    className="relative z-0 items-center gap-2 overflow-hidden rounded-lg border-[2px]
-                                border-red-600 px-2 py-2 mt-5 bg-red-400
-                                  uppercase text-black transition-all duration-500 font-dosis
+            return (
+              <article
+                key={feature.id}
+                className="overflow-hidden rounded-2xl border border-black/10 bg-white shadow-sm"
+              >
+                <div className="relative aspect-[16/9]">
+                  <Image
+                    src={feature.photo}
+                    alt={`${feature.place} photo`}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
 
-                                  before:absolute before:inset-0
-                                  before:-z-10 before:translate-x-[150%]
-                                  before:translate-y-[150%] before:scale-[2.5]
-                                  before:rounded-[100%] before:bg-red-600
-                                  before:transition-transform before:duration-1000 
-                                  
-                                  hover:scale-105 hover:text-white
-                                  hover:before:translate-x-[0%]
-                                  hover:before:translate-y-[0%]
-                                  active:scale-95
-                                  shadow-lg shadow-neutral-600  hover:shadow-black"
-                  >
-                    <span className="text-2xl">Google Driving Directions</span>
-                  </button>
-                </Link>
-              </dl>
-            </div>
-          ))}
+                <div className="p-6">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-xl font-extrabold tracking-tight">
+                        {feature.place}
+                      </h3>
+                      <p className="mt-2 text-sm text-black/70">
+                        {feature.address}
+                        <br />
+                        {feature.city}
+                      </p>
+                    </div>
+
+                    <a
+                      href={`tel:${tel}`}
+                      className="rounded-full bg-black/5 px-4 py-2 text-sm font-semibold text-black transition hover:bg-black/10"
+                    >
+                      {feature.phone}
+                    </a>
+                  </div>
+
+                  {/* Compact mode: collapse long directions */}
+                  {compact ? (
+                    <details className="group mt-5 rounded-xl border border-black/10 bg-black/[0.02] p-4">
+                      <summary className="cursor-pointer list-none text-sm font-semibold text-black/80 [&::-webkit-details-marker]:hidden">
+                        <span className="group-open:hidden">
+                          Show driving directions
+                        </span>
+                        <span className="hidden group-open:inline">
+                          Hide driving directions
+                        </span>
+                      </summary>
+
+                      <div className="mt-4 space-y-4 text-sm text-black/75">
+                        <div>
+                          <div className="font-bold text-black">
+                            From Downtown Chicago
+                          </div>
+                          <p className="mt-1">{feature.downtown}</p>
+                        </div>
+                        <div>
+                          <div className="font-bold text-black">West Suburbs</div>
+                          <p className="mt-1">{feature.west}</p>
+                        </div>
+                        <div>
+                          <div className="font-bold text-black">East Suburbs</div>
+                          <p className="mt-1">{feature.east}</p>
+                        </div>
+                        <div>
+                          <div className="font-bold text-black">North Suburbs</div>
+                          <p className="mt-1">{feature.north}</p>
+                        </div>
+                        <div>
+                          <div className="font-bold text-black">South Suburbs</div>
+                          <p className="mt-1">{feature.south}</p>
+                        </div>
+                      </div>
+                    </details>
+                  ) : (
+                    <div className="mt-5 space-y-4 text-sm text-black/75">
+                      <div>
+                        <div className="font-bold text-black">
+                          From Downtown Chicago
+                        </div>
+                        <p className="mt-1">{feature.downtown}</p>
+                      </div>
+                      <div>
+                        <div className="font-bold text-black">West Suburbs</div>
+                        <p className="mt-1">{feature.west}</p>
+                      </div>
+                      <div>
+                        <div className="font-bold text-black">East Suburbs</div>
+                        <p className="mt-1">{feature.east}</p>
+                      </div>
+                      <div>
+                        <div className="font-bold text-black">North Suburbs</div>
+                        <p className="mt-1">{feature.north}</p>
+                      </div>
+                      <div>
+                        <div className="font-bold text-black">South Suburbs</div>
+                        <p className="mt-1">{feature.south}</p>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mt-6">
+                    <Link
+                      href={feature.google}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex rounded-full bg-black px-5 py-3 text-sm font-semibold text-white transition hover:bg-black/90"
+                    >
+                      Open Google Driving Directions
+                    </Link>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
-};
 
-export default Directions;
+  if (!wrap) return content;
+
+  return (
+    <section className="mx-auto max-w-6xl px-4 py-12 sm:py-16">{content}</section>
+  );
+}

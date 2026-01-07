@@ -1,30 +1,57 @@
-import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
-const Hero = () => {
+export default function Hero() {
   return (
-    <div className="relative isolate overflow-hidden h-96 w-auto md:w-full md:h-screen mx-auto text-center flex justify-center items-center">
-      <div className="saturate-150 z-20 md:-mt-32">
-        <p className="text-yellow-300  2xl:text-7xl xl:text-6xl md:text-4xl sm:text-3xl text-2xl font-lobster font-thin 2xl:mb-10 sm:mb-2">
-          The Home of the Giant Burritos
-        </p>
-        <h1 className="text-red-600 2xl:text-8xl xl:text-7xl md:text-7xl sm:text-6xl text-4xl font-extrabold md:py-6 sm:py-3 font-cinzel p-5">
-          El Faro Restaurant
-        </h1>
-        <p className="2xl:mt-12  2xl:text-5xl xl:text-4xl md:text-2xl sm:text-3xl text-xl font-lobster text-yellow-300 py-3">
-          An enduring family legacy — over 45 years in the making!
-        </p>
+    <section className="relative overflow-hidden border-b border-black/5">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/skylight.jpg"
+          alt="El Faro food and dining"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/55" />
       </div>
-      <Image
-        src="/skylight.jpg"
-        alt="lighthouse"
-        width={1000}
-        height={1000}
-        priority={true}
-        className="absolute z-0 h-screen w-screen opacity-40 animate-pulse"
-      />
-    </div>
-  );
-};
 
-export default Hero;
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold tracking-wide text-white/85">
+            The Home of the Giant Burritos
+          </p>
+
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+            El Faro Restaurant
+          </h1>
+
+          <p className="mt-4 text-base text-white/85 sm:text-lg">
+            An enduring family legacy — over 45 years in the making.
+          </p>
+
+          <div className="mt-7 flex flex-wrap gap-3">
+            <Link
+              href="/elfaro"
+              className="inline-flex rounded-full bg-red-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-red-600"
+            >
+              View Summit Menu
+            </Link>
+
+            <Link
+              href="/elfarotwo"
+              className="inline-flex rounded-full bg-white/10 px-6 py-3 text-sm font-semibold text-white ring-1 ring-white/25 backdrop-blur transition hover:bg-white/15"
+            >
+              View Riverside Menu
+            </Link>
+          </div>
+
+          <p className="mt-5 text-xs font-semibold text-white/70">
+            Pickup & delivery links are on each location page.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}

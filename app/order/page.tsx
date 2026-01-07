@@ -1,228 +1,143 @@
-"use client";
-
-import { AnimatePresence, motion } from "framer-motion";
-import { FiPlus } from "react-icons/fi";
-import React, { Dispatch, SetStateAction, useState } from "react";
+// app/order-online/page.tsx
+import type { Metadata } from "next";
 import Link from "next/link";
+import { FaroOne, FaroTwo } from "@/app/components/directions/faroDirect";
 
-const OrderPage = () => {
-  const [selected, setSelected] = useState(TABS[0]);
+export const metadata: Metadata = {
+  title: "Order Online | El Faro",
+  description:
+    "Order El Faro online for pickup or delivery. Choose your location: Summit (El Faro 1) or Riverside (El Faro 2).",
+};
 
+type Service = {
+  name: string;
+  href: string;
+  note?: string;
+};
+
+function ServiceCard({ s }: { s: Service }) {
   return (
-    <section className=" bg-black px-4 py-12 text-slate-50">
-      <Heading />
-      <Tabs selected={selected} setSelected={setSelected} />
-      <Questions selected={selected} />
+    <Link
+      href={s.href}
+      target="_blank"
+      rel="noreferrer"
+      className="group block rounded-3xl border border-black/10 bg-white p-6 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+    >
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <div className="text-lg font-extrabold tracking-tight">{s.name}</div>
+          {s.note ? (
+            <p className="mt-1 text-sm text-black/70">{s.note}</p>
+          ) : null}
+        </div>
+        
+      </div>
+      <div className="mt-4 inline-flex rounded-full bg-red-500 px-5 py-2 text-sm font-semibold text-white transition group-hover:bg-red-600">
+        Order now
+      </div>
+    </Link>
+  );
+}
+
+function LocationBlock({
+  title,
+  address,
+  city,
+  phone,
+  google,
+  services,
+}: {
+  title: string;
+  address: string;
+  city: string;
+  phone: string;
+  google: string;
+  services: Service[];
+}) {
+  const tel = phone.replace(/[^\d+]/g, "");
+  return (
+    <section className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+        <div>
+          <h2 className="text-2xl font-extrabold tracking-tight">{title}</h2>
+          <p className="mt-2 text-sm text-black/70">
+            {address}
+            <br />
+            {city}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          <a
+            href={`tel:${tel}`}
+            className="rounded-full bg-black px-5 py-2 text-sm font-semibold text-white hover:bg-black/90"
+          >
+            Call
+          </a>
+          <Link
+            href={google}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-full border border-black/15 px-5 py-2 text-sm font-semibold hover:bg-black/5"
+          >
+            Directions
+          </Link>
+        </div>
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        {services.map((s) => (
+          <ServiceCard key={s.name} s={s} />
+        ))}
+      </div>
     </section>
   );
-};
+}
 
-export default OrderPage;
-
-const Heading = () => {
-  return (
-    <>
-      <div className="relative flex flex-col items-center justify-center p-4">
-        <span className="mb-8 bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text  text-transparent font-dosis text-white text-xl sm:text-2xl md:text-4xl 3xl:text-5xl text-center">
-          We do not use our own delivery drivers, so we are on some online food
-          ordering platforms that allow deliveries and pickup.
-        </span>
-        <span className="mb-10 sm:mb-8 text-3xl sm:text-5xl 3xl:text-6xl font-playfair text-center">
-          Online Pickup and Delivery Services
-        </span>
-      </div>
-    </>
-  );
-};
-
-const Tabs = ({
-  selected,
-  setSelected,
-}: {
-  selected: string;
-  setSelected: Dispatch<SetStateAction<string>>;
-}) => {
-  return (
-    <div className="relative z-20 flex flex-wrap items-center justify-center gap-4">
-      {TABS.map((tab) => (
-        <button
-          onClick={() => setSelected(tab)}
-          className={`relative overflow-hidden whitespace-nowrap rounded-md border-[1px] px-3 py-1.5 text-lg sm:text-3xl 3xl:text-6xl font-medium transition-colors duration-500 ${
-            selected === tab
-              ? "border-red-500 text-white"
-              : "border-slate-600 bg-transparent text-slate-400"
-          }`}
-          key={tab}
-        >
-          <span className="relative z-20">{tab}</span>
-          <AnimatePresence>
-            {selected === tab && (
-              <motion.span
-                initial={{ y: "100%" }}
-                animate={{ y: "0%" }}
-                exit={{ y: "100%" }}
-                transition={{
-                  duration: 0.5,
-                  ease: "backIn",
-                }}
-                className="absolute inset-0 z-0 bg-gradient-to-r from-red-600 to-rose-400"
-              />
-            )}
-          </AnimatePresence>
-        </button>
-      ))}
-    </div>
-  );
-};
-
-const Questions = ({ selected }: { selected: string }) => {
-  return (
-    <div className="mx-auto mt-12 max-w-3xl">
-      <AnimatePresence mode="wait">
-        {Object.entries(RESTURANTS).map(([tab, companys]) => {
-          return selected === tab ? (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{
-                duration: 0.5,
-                ease: "backIn",
-              }}
-              className="space-y-4"
-              key={tab}
-            >
-              {companys.map((q, idx) => (
-                <Question key={idx} {...q} />
-              ))}
-            </motion.div>
-          ) : undefined;
-        })}
-      </AnimatePresence>
-    </div>
-  );
-};
-
-const Question = ({ company, answer, website }: QuestionType) => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <motion.div
-      animate={open ? "open" : "closed"}
-      className={`rounded-xl border-[1px] border-slate-700 px-4 transition-colors ${
-        open ? "bg-rose-950" : "bg-slate-900"
-      }`}
-    >
-      <button
-        onClick={() => setOpen((pv) => !pv)}
-        className="flex w-full items-center justify-between gap-4 py-2"
-      >
-        <span
-          className={`text-left text-lg sm:text-3xl 3xl:text-5xl 3xl:mb-10 font-medium transition-colors ${
-            open ? "text-slate-50" : "text-red-600"
-          }`}
-        >
-          {company}
-        </span>
-        <motion.span
-          variants={{
-            open: {
-              rotate: "45deg",
-            },
-            closed: {
-              rotate: "0deg",
-            },
-          }}
-        >
-          <FiPlus
-            className={`text-2xl transition-colors 3xl:text-5xl ${
-              open ? "text-slate-50" : "text-slate-400"
-            }`}
-          />
-        </motion.span>
-      </button>
-
-      <motion.div
-        initial={false}
-        animate={{
-          height: open ? "fit-content" : "0px",
-          marginBottom: open ? "24px" : "0px",
-        }}
-        className="overflow-hidden text-slate-400 "
-      >
-        <Link href={website} className="mt-1">
-          <button
-            className={`
-          
-          
-          relative z-0 flex items-center gap-2 overflow-hidden rounded-xl border-[1px] 
-          border-white hover:border-yellow-300 px-1 sm:px-4 py-3 sm:py-2 font-semibold
-          uppercase text-white transition-all duration-500 
-          sm:text-xl 3xl:text-4xl ml-2
-          
-          before:absolute before:inset-0
-          before:-z-10 before:translate-x-[150%]
-          before:translate-y-[150%] before:scale-[2.5]
-          before:rounded-[100%] before:bg-yellow-500
-          before:transition-transform before:duration-1000
-          before:content-[""]
+// ✅ Plug your real links here (or we can import from onlineservices.ts)
+const servicesOne: Service[] = [
+  { name: "Uber Eats", href: "https://...", note: "Delivery & pickup" },
   
-          hover:scale-105 hover:text-black
-          hover:before:translate-x-[0%]
-          hover:before:translate-y-[0%]
-          hover:bg-white
-          active:scale-95
-          
-          `}
-          >
-            {answer}
-          </button>
-        </Link>
-      </motion.div>
-    </motion.div>
+];
+
+const servicesTwo: Service[] = [
+  { name: "Uber Eats", href: "https://...", note: "Delivery & pickup" },
+  
+];
+
+export default function OrderOnlinePage() {
+  const one = FaroOne[0];
+  const two = FaroTwo[0];
+
+  return (
+    <main className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+      <header className="space-y-3">
+        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+          Order Online
+        </h1>
+        <p className="max-w-2xl text-sm text-black/70 sm:text-base">
+          Choose your location below to order for pickup or delivery.
+        </p>
+      </header>
+
+      <div className="mt-8 space-y-6">
+        <LocationBlock
+          title="El Faro 1 (Summit)"
+          address={one.address}
+          city={one.city}
+          phone={one.phone}
+          google={one.google}
+          services={servicesOne}
+        />
+        <LocationBlock
+          title="El Faro 2 (Riverside)"
+          address={two.address}
+          city={two.city}
+          phone={two.phone}
+          google={two.google}
+          services={servicesTwo}
+        />
+      </div>
+    </main>
   );
-};
-
-type QuestionType = {
-  company: string;
-  answer: string;
-  website: string;
-};
-
-const TABS = ["El Faro", "El Faro 2"];
-
-const RESTURANTS = {
-  "El Faro": [
-    {
-      company: "UberEats",
-      answer: "Delivery / Pickup Menu",
-      website: "https://www.order.store/store/el-faro/WzM9BLY9Xnugvft3qtEN7Q",
-    },
-    {
-      company: "Picking Up?",
-      answer: "Driving Directions",
-      website:
-        "https://www.google.com/maps/dir//6136+S+Archer+Rd,+Summit,+IL+60501/@41.779631,-87.8956449,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x880e3701d5797193:0xceaabb6e30151bca!2m2!1d-87.8132443!2d41.7796791?entry=ttu",
-    },
-  ],
-  "El Faro 2": [
-    {
-      company: "UberEats",
-      answer: "Delivery / Pickup",
-      website:
-        "https://www.order.store/store/el-faro-%232/McE3SRgqQHuW8oRkODe6CQ",
-    },
-    {
-      company: "Google Menu",
-      answer: "Delivery / Pickup",
-      website:
-        "https://food.google.com/chooseprovider?restaurantId=%2Fg%2F11j3w_q93l&partnerId=02966185379359903991&orderType=2&utm_source=share",
-    },
-    {
-      company: "Picking Up?",
-      answer: "Driving Directions",
-      website:
-        "https://www.google.com/maps/dir/41.7696148,-87.8058391/el+faro+2/@41.7963471,-87.8582754,13z/data=!3m1!4b1!4m9!4m8!1m1!4e1!1m5!1m1!1s0x880e354735cb0417:0x1fb4ff7deba9bd89!2m2!1d-87.8032852!2d41.8295059?entry=ttu",
-    },
-  ],
-};
+}

@@ -1,28 +1,69 @@
-"use client";
-import React from "react";
-import { MenuOne } from "../components/MenuOne";
 import Image from "next/image";
+import MenuOne from "../components/MenuOne";
 import Directions from "../components/directions/Directions";
 import { FaroOne } from "../components/directions/faroDirect";
 
+import LocationAboutOrder from "@/app/components/location/LocationAboutOrder";
+import { oneservices } from "@/app/components/orderonline/onlineservices";
+import LocationPhotoGrid from "@/app/components/location/LocationPhotoGrid";
 
+const summitPhotos = [
+  { src: "/frontsummit.jpg", alt: "El Faro Summit front" },
+  { src: "/summitinside.jpg", alt: "El Faro Summit interior" },
+  { src: "/summitinside2.jpg", alt: "El Faro Summit interior seating" },
+  { src: "/summitback.jpg", alt: "El Faro Summit back area" },
+];
 
-const ElFaroOnePage = () => {
-  return (
-    <>
-      <div className="text-center text-white bg-black ">
-          <Image
-          alt="El Faro 1 logo"
-          width={400}
-          height={0}
-          src="/faro1logo.png"
-          className=" mx-auto h-48 md:h-60 lg:h-56 xl:h-72 2xl:h-96 w-auto mt-12 hover:saturate-200"
-          />
-      <MenuOne />
-      <Directions data={FaroOne} />
-    </div>
-    </>
-  );
+const hoursOne = {
+  tz: "America/Chicago",
+  rules: [{ days: [0,1,2,3,4,5,6], open: "06:00", close: "03:00" }],
 };
 
-export default ElFaroOnePage;
+
+export default function ElFaroOnePage() {
+  const one = FaroOne[0];
+
+  return (
+    <main>
+      <section className="mx-auto max-w-full px-4 pt-10 sm:pt-14">
+        <header className="flex flex-col items-center gap-4 pb-6 bg-black ">
+          <Image
+            src="/elfaro1logo.png"
+            alt="El Faro 1"
+            width={220}
+            height={220}
+            priority
+            className="h-auto w-[180px] sm:w-[220px] my-4"
+          />
+        </header>
+      </section>
+
+      <LocationAboutOrder
+        title="El Faro 1 (Summit)"
+        blurb="Established in 1981. Serving classics like burritos, tortas, tacos, and weekend favorites."
+        address={one.address}
+        city={one.city}
+        phone={one.phone}
+        google={one.google}
+        photo={one.photo}
+        services={oneservices}
+        hours={hoursOne}
+      />
+<MenuOne />
+      {/* Full-width photo grid under About/Order */}
+      <LocationPhotoGrid
+        title="Inside El Faro (Summit)"
+        images={summitPhotos}
+      />
+
+      {/* Menu + Directions below */}
+      
+     {/* <section className="w-full bg-white">
+  <div className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
+    <Directions data={FaroOne} className="w-full" />
+  </div>
+</section> */}
+
+    </main>
+  );
+}
