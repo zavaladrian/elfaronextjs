@@ -39,7 +39,7 @@ export default function LocationAboutOrder({
                 src={photo}
                 alt={title}
                 fill
-                sizes="(min-width: 1024px) 50vw, 100vw"
+                sizes="(min-width: 1200px) 576px, (min-width: 1024px) 50vw, 100vw"
                 className="object-cover"
               />
             </div>
@@ -49,9 +49,9 @@ export default function LocationAboutOrder({
           <div className="rounded-3xl border border-black/10 bg-white p-6 shadow-sm sm:p-8">
             {/* ✅ Title + badge */}
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <h2 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
+              <h1 className="text-2xl font-extrabold tracking-tight sm:text-3xl">
                 {title}
-              </h2>
+              </h1>
 
               {hours ? <OpenNowBadge hours={hours} /> : null}
             </div>

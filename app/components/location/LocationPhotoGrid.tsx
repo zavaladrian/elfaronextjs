@@ -24,7 +24,7 @@ export default function LocationPhotoGrid({
                     src={img.src}
                     alt={img.alt}
                     fill
-                    sizes="(min-width: 1024px) 50vw, (min-width: 640px) 50vw, 100vw"
+                    sizes="(min-width: 1200px) 576px, (min-width: 640px) 50vw, 100vw"
                     className="object-cover"
                   />
                 </div>

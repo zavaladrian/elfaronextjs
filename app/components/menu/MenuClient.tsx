@@ -59,9 +59,9 @@ export default function MenuClient({ config }: { config: MenuConfig }) {
     <section className="mx-auto max-w-6xl px-4 py-10 sm:py-14">
       {/* Heading */}
       <header className="space-y-2">
-        <h1 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+        <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
           {config.heading}
-        </h1>
+        </h2>
         <p className="text-base font-semibold text-black/70">
           {config.subheading}
         </p>

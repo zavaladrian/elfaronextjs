@@ -16,8 +16,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "El Faro 1 (Summit) | Menu & Hours",
+    description:
+      "El Faro in Summit, IL — home of the giant burritos since 1981. View our full menu, hours, and order online. Open daily 6am–3am.",
+    images: ["/faro.jpg"],
+  },
+  alternates: {
+    canonical: "https://www.elfaros.com/elfaro",
+  },
 };
-import Directions from "../components/directions/Directions";
 import { FaroOne } from "../components/directions/faroDirect";
 
 import LocationAboutOrder from "@/app/components/location/LocationAboutOrder";

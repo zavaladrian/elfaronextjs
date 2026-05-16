@@ -16,8 +16,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "El Faro 2 (Riverside) | Menu & Hours",
+    description:
+      "El Faro 2 in Riverside, IL — larger dining room, table service, and an expanded menu. Open Tue–Sun 8am–10pm. View the menu and order online.",
+    images: ["/faro22.png"],
+  },
+  alternates: {
+    canonical: "https://www.elfaros.com/elfarotwo",
+  },
 };
-import Directions from "../components/directions/Directions";
 import { FaroTwo } from "../components/directions/faroDirect";
 
 import LocationAboutOrder from "@/app/components/location/LocationAboutOrder";

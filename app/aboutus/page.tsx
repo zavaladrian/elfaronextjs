@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "About Us | El Faro",
   description:
     "Learn about El Faro in Summit and El Faro 2 in Riverside—our story, locations, and what we serve.",
+  alternates: {
+    canonical: "https://www.elfaros.com/aboutus",
+  },
 };
 
 type LocationCardProps = {
