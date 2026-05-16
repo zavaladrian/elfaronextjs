@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import MenuOne from "../components/MenuOne";
+
+export const metadata: Metadata = {
+  title: "El Faro 1 (Summit) | Menu & Hours",
+  description:
+    "El Faro in Summit, IL — home of the giant burritos since 1981. View our full menu, hours, and order online. Open daily 6am–3am.",
+  openGraph: {
+    title: "El Faro 1 (Summit) | Menu & Hours",
+    description:
+      "El Faro in Summit, IL — home of the giant burritos since 1981. View our full menu, hours, and order online. Open daily 6am–3am.",
+    url: "https://www.elfaros.com/elfaro",
+    siteName: "El Faro Restaurants",
+    images: [{ url: "/faro.jpg", width: 1200, height: 630, alt: "El Faro Summit" }],
+    type: "website",
+    locale: "en_US",
+  },
+};
 import Directions from "../components/directions/Directions";
 import { FaroOne } from "../components/directions/faroDirect";
 

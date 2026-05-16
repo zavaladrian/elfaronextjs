@@ -14,6 +14,7 @@ const pills: Pill[] = [
   { href: "/", label: "Home" },
   { href: "/elfaro", label: "El Faro 1" },
   { href: "/elfarotwo", label: "El Faro 2" },
+  { href: "/aboutus", label: "About" },
 ];
 
 export default function Navbar() {
@@ -39,6 +40,7 @@ export default function Navbar() {
     if (pathname === "/") return 0;
     if (isSegmentActive("/elfarotwo")) return 2;
     if (isSegmentActive("/elfaro")) return 1;
+    if (isSegmentActive("/aboutus")) return 3;
     return 0;
   }, [pathname]);
 
@@ -85,11 +87,11 @@ export default function Navbar() {
 
         {/* Desktop pill toggle */}
         <div className="hidden items-center md:flex">
-          <div className="relative grid grid-cols-3 rounded-full border border-black/10 bg-white/70 p-1 shadow-sm">
+          <div className="relative grid grid-cols-4 rounded-full border border-black/10 bg-white/70 p-1 shadow-sm">
             {/* Sliding highlight */}
             <span
               aria-hidden
-              className="pointer-events-none absolute left-1 top-1 h-[calc(100%-8px)] w-[calc((100%-8px)/3)] rounded-full bg-black/5 transition-transform duration-300"
+              className="pointer-events-none absolute left-1 top-1 h-[calc(100%-8px)] w-[calc((100%-8px)/4)] rounded-full bg-black/5 transition-transform duration-300"
               style={sliderStyle}
             />
 

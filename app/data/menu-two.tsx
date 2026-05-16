@@ -2,7 +2,7 @@
 import type { MenuConfig } from "@/app/components/menu/menu-types";
 
 export const menuTwo: MenuConfig = {
-  heading: "Check Out Our Menu",
+  heading: "El Faro 2 Menu",
   subheading: "El Faro 2",
   categories: [
     {

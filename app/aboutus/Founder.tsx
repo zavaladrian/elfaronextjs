@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 
 
 
@@ -10,10 +10,12 @@ const Founder = () => {
           <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
             <div>
               <div className="relative aspect-[2/1] h-full md:-mx-8 xl:-mx-20 xl:aspect-[2/2]">
-                <img
-                  className="absolute inset-0 h-full w-full rounded-2xl bg-rose-950 object-cover shadow-xl shadow-black"
+                <Image
                   src="/gramps.png"
                   alt="Jose Zavala"
+                  fill
+                  sizes="(min-width: 1280px) 384px, (min-width: 768px) 50vw, 100vw"
+                  className="rounded-2xl bg-rose-950 object-cover shadow-xl shadow-black"
                 />
               </div>
             </div>

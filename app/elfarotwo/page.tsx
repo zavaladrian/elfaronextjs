@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import MenuTwo from "../components/MenuTwo";
+
+export const metadata: Metadata = {
+  title: "El Faro 2 (Riverside) | Menu & Hours",
+  description:
+    "El Faro 2 in Riverside, IL — larger dining room, table service, and an expanded menu. Open Tue–Sun 8am–10pm. View the menu and order online.",
+  openGraph: {
+    title: "El Faro 2 (Riverside) | Menu & Hours",
+    description:
+      "El Faro 2 in Riverside, IL — larger dining room, table service, and an expanded menu. Open Tue–Sun 8am–10pm. View the menu and order online.",
+    url: "https://www.elfaros.com/elfarotwo",
+    siteName: "El Faro Restaurants",
+    images: [{ url: "/faro22.png", width: 1200, height: 630, alt: "El Faro Riverside" }],
+    type: "website",
+    locale: "en_US",
+  },
+};
 import Directions from "../components/directions/Directions";
 import { FaroTwo } from "../components/directions/faroDirect";
 
