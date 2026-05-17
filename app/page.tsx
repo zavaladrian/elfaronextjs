@@ -5,8 +5,8 @@ import Founder from "./aboutus/Founder";
 import Directions from "./components/directions/Directions";
 import { FaroOne, FaroTwo } from "./components/directions/faroDirect";
 
-const Featured = dynamic(() => import("./components/Featured"), { ssr: true, suspense: true });
-const ContactUs = dynamic(() => import("./components/ContactUs"), { ssr: true, suspense: true });
+const Featured = dynamic(() => import("./components/Featured"), { ssr: true });
+const ContactUs = dynamic(() => import("./components/ContactUs"), { ssr: true });
 
 const homepageSchema = {
   "@context": "https://schema.org",
